@@ -1,0 +1,183 @@
+************** DOCKER - Comandos *****************
+
+    2. Comandos Básicos com containers
+        
+        * Exutar uma imagem (run)
+            docker run hello-world
+        
+        * verificar containers que estão em execução (ps)
+            docker ps
+
+        * Containers parados e em execução (-a)
+            docker ps -a
+        
+        * Verificar apenas os ids dos Containers
+            docker ps -q
+        
+        * Integrar o Terminal da máquina local com a do container (-it)
+            docker run -it ubuntu
+        
+         * Exutar um container novamente
+            docker start <ID_Container>
+        
+        * Parando a execução de um contrainer
+            docker stop <ID_Container>
+
+        * Concatenando comando $(<Comando>)
+            docker stop $(docker ps -q)
+
+        * Diminuindo o tempo padrão (10s) para parar um container
+            docker stop -t 0
+
+        * Removendo containers
+            docker rm <ID_Container>
+        
+        * Removendo todos os container inativos
+            docker container prune
+        
+        * Verificar as imagens existentes
+            docker images
+        
+        * Removendo imagem existente
+            docker rmi Nome_Imagem
+        
+        * Exutar um container sem atrelar um terminal (-d)
+            docker run -d dockersamples/static-site       
+        
+        * Atribuindo uma porta externa no container (-p)
+            docker run -d -p dockersamples/static-site
+        
+        * Verificar portas utilizadas em um container
+            docker port <ID_Container>
+
+        * Nomeando um container (--name)
+            docker run -d -p --name <Nome_Container> dockersamples/static-site
+
+        * Definindo uma porta específica (-p <PORTA-MUNDO-EXTERNO:PORTA-CONTAINER>)
+            docker run -d -p <PORTA-MUNDO-EXTERNO:PORTA-CONTAINER>
+            Ex:
+            docker run -d -p 12345:80 dockersamples/static-site
+
+        * Atribuindo uma variável de ambiente (-e AUTHOR=<"Nome_Variavel">)
+            docker run -d -P -e AUTHOR="Douglas Q" dockersamples/static-site
+
+        3. Usando Volumes
+            
+            * Criando um Volume - Ubunto
+                docker run -v "/var/www" ubuntu
+
+            * Inspecionando um container (retorna diversas informações)
+                docker inspect <ID_Container>
+                
+                No Mounts é possivel verificar as configurações do volume criado
+            
+            * Cria um vdocker run -d -p 8080:3000 chico/nodeolume no respectivo caminho do container, caso seja especificado um caminho local monta o volume local no volume do container.
+                docker run -v "[CAMINHO_VOLUME_LOCAL:]CAMINHO_VOLUME_CONTAINER" NOME_DA_IMAGEM
+
+            * Especificando qual diretório o comando deve executar (-w (Working Directory))
+                docker run -it -p 8080:3000 -v  "/home/chico/Documentos/Projetos/docker-curso/volume-exemplo:/var/www"
+            
+            * Utilizando auxiliar de interpolação ($)
+                docker run -p 8080:3000 -v "$(pwd):/var/www" -w "/var/www" node npm start
+
+        4. Criando um Dockerfile
+
+            1º Indica qual imagem vamos utilizar e informar a versão, no caso de exemplo estamos utilizando a 
+            ultima versão
+            
+            FROM node:latest
+        
+            2º Informar quem cuida ou quem criou a imagem
+            
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+
+            3º Especifica o que queremos colocar dentro da imagem. No Caso queremos colocar o código dentro da 
+               imagem (Estamos copiando tudo que está na pasta onde se encontra o dockerfile) e amos 
+               copiar para /var/www
+
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                COPY . /var/www
+
+            4º Precisaremos baixar as dependencias para rodar nossa aplicação 
+
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                COPY . /var/www
+                RUN npm install
+
+            5º Especificar o comando para iniciar a nossa aplicação. Também podemos passar o comando como se fosse 
+                em um array, por exemplo ["npm", "start"], ambos funcionam.
+            
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                COPY . /var/www
+                RUN npm install
+                ENTRYPOINT npm start
+
+            6º Especificar a porta que fica exposta
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                COPY . /var/www
+                RUN npm install
+                ENTRYPOINT ["npm", "start"]
+                EXPOSE 3000 
+
+            7º Por fim, falta dizermos onde os comandos rodarão, pois eles devem ser executados dentro 
+            da pasta /var/www
+                
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                COPY . /var/www
+                WORKDIR /var/www
+                RUN npm install
+                ENTRYPOINT npm start
+                EXPOSE 3000
+
+            * Para criar a imamgem do dockerfile
+
+                docker build -f Dockerfile .
+                
+                docker build -f node.dockerfile . (Se o nome for diferente de dockerfile é obrigatório especificar node.<nome_arq>)
+
+            * Rodar a imagem, incluíndo uma tag (Chico)
+                docker build -f Dockerfile -t chico/node .
+
+            * Criando variáveis de ambiente (ENV)
+
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                ENV PORT=3000
+                COPY . /var/www
+                WORKDIR /var/www
+                RUN npm install
+                ENTRYPOINT npm start
+                EXPOSE 3000
+
+            * Utilizando a variável criada
+               
+                FROM node:latest
+                MAINTAINER Douglas Quintanilha
+                ENV PORT=3000
+                COPY . /var/www
+                WORKDIR /var/www
+                RUN npm install
+                ENTRYPOINT npm start
+                EXPOSE $PORT
+
+            4.1 Criando um container a partir da nossa imagem
+
+                docker run -d -p 8080:3000 chico/node
+            
+                * inicia o processo de login no Docker Hub.
+                    docker login 
+                
+                * envia a imagem criada para o Docker Hub
+                    docker push NOME_USUARIO/NOME_IMAGEM 
+
+                * baixa a imagem desejada do Docker Hub
+                    docker pull NOME_USUARIO/NOME_IMAGEM
+
+************** DOCKER - Comandos *****************
+

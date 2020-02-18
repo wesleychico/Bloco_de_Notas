@@ -1,0 +1,16 @@
+Linux e Windows
+
+
+    - Listar e Encerrar  Processos no Windows 
+        link: https://receitasdecodigo.com.br/java/listar-e-matar-processo-pela-porta-em-uso-no-windows-pelo-cmd
+
+        * Listar os processos de servidores que estão utilizando uma determinada 
+            --> netstat - a -n 
+        
+        * Para localizar o processo de uma determinada porta use o comando
+            -->  netstat -a -n -o | findstr <porta>
+
+        * Matar o processo
+            --> Taskkill /PID <pid> /F
+
+            * <pid> Alterar o <pid> pelo número do PID que foi encontrado na listagem do comando do netstat.
