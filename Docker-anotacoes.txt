@@ -41,6 +41,9 @@
         * Removendo imagem existente
             docker rmi Nome_Imagem
         
+        * Acessando um container em execução
+            docker exec -it <ID_CONTAINER> bash
+        
         * Exutar um container sem atrelar um terminal (-d)
             docker run -d dockersamples/static-site       
         
@@ -178,6 +181,21 @@
 
                 * baixa a imagem desejada do Docker Hub
                     docker pull NOME_USUARIO/NOME_IMAGEM
+
+        5. Comunicação entre containers
+
+            * Verificar ip atribuído para o contrainer
+                hostname -i 
+            
+            * Cria uma rede especificando o driver desejado.
+                docker network create --driver bridge NOME_DA_REDE
+                docker run -it --name container-ubuntu --network rede-chico ubuntu
+                
+            * Cria um container especificando seu nome e qual rede deverá ser usada
+                docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM
+
+            
+
 
 ************** DOCKER - Comandos *****************
 
