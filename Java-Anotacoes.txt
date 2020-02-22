@@ -81,5 +81,24 @@
             Se você acha que não precisa disso e que o desenvolvedor pode fazer o tratamento quando ele achar melhor, 
             use unchecked.
 
+      6. Finally e try with resources
+          
+          * Exceções - Tipos
+
+            IllegalStateException
+              Indica que um objeto possui um estado inválido.
+
+            * IllegalArgumentException
+             
+              Verificar os valores no construtor da classe
+             
+              Exemplo: Agencia negativa
+                Conta c = new ContaCorrente(-111, 222); //faz sentido? 
+             
+                Tratamento:
+                  if(agencia < 1) {
+                   throw new IllegalArgumentException("Agencia inválida");
+                  }
+
 
             
