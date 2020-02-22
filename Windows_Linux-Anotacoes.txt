@@ -1,7 +1,10 @@
-Linux e Windows
+************ Comandos Linux **********************
 
+    * Mover Arquivos 
+        mv <arquivo> <diretorio>
 
-    - Listar e Encerrar  Processos no Windows 
+************* Comandos Windows **********************
+    * Listar e Encerrar  Processos no Windows 
         link: https://receitasdecodigo.com.br/java/listar-e-matar-processo-pela-porta-em-uso-no-windows-pelo-cmd
 
         * Listar os processos de servidores que estão utilizando uma determinada 

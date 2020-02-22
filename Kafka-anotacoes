@@ -1,0 +1,40 @@
+********   KAFKA_Curso - kafka Introducao a streams em microservicos ******
+1. kafka Introducao a streams em microservicos    
+
+    * Broker 
+        Recebe as mensagem enviadas pelo servidor
+
+    * Iniciar o Zookeeper para iniciar as configuracoes do kafka
+    
+        bin/zookeeper-server-start.sh config/zookeeper.properties 
+
+        Zookeeper - Armazena as configuracoes do kafka
+        Porta padrao do Zookeeper -  2181
+
+    * Iniciar o kafka 
+
+        bin/kafka-server-start.sh config/server.properties
+    
+        Porta padrao do kafka - 9092
+
+    * Criando um topica e conectando com o kafka
+
+        bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic LOJA_NOVO_PEDIDO
+
+    * Verificar a existencia dos topicos
+    
+        bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+    * Enviar mensagem para o kafka (producer)
+        
+        bin/kafka-console-producer.sh --broker-list localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+    * Receber mensagem no kafka (Consumer)
+
+        * Consumir so as mensagens novas
+            bin/kafka-console-consumer.sh  --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+        * Consumir da primeira mensagem que foi armazenada no kafka
+            bin/kafka-console-consumer.sh  --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO --from-beginning
+
+    
