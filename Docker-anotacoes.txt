@@ -41,6 +41,9 @@
         * Removendo imagem existente
             docker rmi Nome_Imagem
         
+        * Acessando um container em execução
+            docker exec -it <ID_CONTAINER> bash
+        
         * Exutar um container sem atrelar um terminal (-d)
             docker run -d dockersamples/static-site       
         
@@ -80,60 +83,7 @@
             * Utilizando auxiliar de interpolação ($)
                 docker run -p 8080:3000 -v "$(pwd):/var/www" -w "/var/www" node npm start
 
-        4. Criando um Dockerfile
-
-            1º Indica qual imagem vamos utilizar e informar a versão, no caso de exemplo estamos utilizando a 
-            ultima versão
-            
-            FROM node:latest
-        
-            2º Informar quem cuida ou quem criou a imagem
-            
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-
-            3º Especifica o que queremos colocar dentro da imagem. No Caso queremos colocar o código dentro da 
-               imagem (Estamos copiando tudo que está na pasta onde se encontra o dockerfile) e amos 
-               copiar para /var/www
-
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                COPY . /var/www
-
-            4º Precisaremos baixar as dependencias para rodar nossa aplicação 
-
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                COPY . /var/www
-                RUN npm install
-
-            5º Especificar o comando para iniciar a nossa aplicação. Também podemos passar o comando como se fosse 
-                em um array, por exemplo ["npm", "start"], ambos funcionam.
-            
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                COPY . /var/www
-                RUN npm install
-                ENTRYPOINT npm start
-
-            6º Especificar a porta que fica exposta
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                COPY . /var/www
-                RUN npm install
-                ENTRYPOINT ["npm", "start"]
-                EXPOSE 3000 
-
-            7º Por fim, falta dizermos onde os comandos rodarão, pois eles devem ser executados dentro 
-            da pasta /var/www
-                
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                COPY . /var/www
-                WORKDIR /var/www
-                RUN npm install
-                ENTRYPOINT npm start
-                EXPOSE 3000
+        4. Comandos relacionados à construção de Dockerfile
 
             * Para criar a imamgem do dockerfile
 
@@ -144,31 +94,9 @@
             * Rodar a imagem, incluíndo uma tag (Chico)
                 docker build -f Dockerfile -t chico/node .
 
-            * Criando variáveis de ambiente (ENV)
-
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                ENV PORT=3000
-                COPY . /var/www
-                WORKDIR /var/www
-                RUN npm install
-                ENTRYPOINT npm start
-                EXPOSE 3000
-
-            * Utilizando a variável criada
-               
-                FROM node:latest
-                MAINTAINER Douglas Quintanilha
-                ENV PORT=3000
-                COPY . /var/www
-                WORKDIR /var/www
-                RUN npm install
-                ENTRYPOINT npm start
-                EXPOSE $PORT
-
-            4.1 Criando um container a partir da nossa imagem
-
-                docker run -d -p 8080:3000 chico/node
+        4. Comandos relacionados ao Docker Hub
+                * Criando um container a partir da nossa imagem
+                    docker run -d -p 8080:3000 chico/node
             
                 * inicia o processo de login no Docker Hub.
                     docker login 
@@ -179,5 +107,105 @@
                 * baixa a imagem desejada do Docker Hub
                     docker pull NOME_USUARIO/NOME_IMAGEM
 
-************** DOCKER - Comandos *****************
+        5. Comandos relacionados à rede
+
+            * Verificar ip atribuído para o contrainer
+                hostname -i 
+            
+            * Cria uma rede especificando o driver desejado.
+                docker network create --driver bridge NOME_DA_REDE
+                docker run -it --name container-ubuntu --network rede-chico ubuntu
+                
+            * Cria um container especificando seu nome e qual rede deverá ser usada
+                docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM
+
+        6. Comandos relacionados ao docker-compose
+            
+            * Realiza o build dos serviços relacionados ao arquivo docker-compose.yml, assim como verifica a sua sintaxe.
+                docker-compose build
+
+            * Sobe todos os containers relacionados ao docker-compose, desde que o build já tenha sido executado.
+                docker-compose up 
+
+            * Para todos os serviços em execução que estejam relacionados ao arquivo docker-compose.yml.
+                docker-compose down
+       
+************** DOCKER - Comandos **********************
+
+************** Dockerfile - Entendendo *****************
+
+1º Indica qual imagem vamos utilizar e informar a versão, no caso de exemplo estamos utilizando a 
+    ultima versão
+            
+F   ROM node:latest
+
+2º Informar quem cuida ou quem criou a imagem
+
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+
+3º Especifica o que queremos colocar dentro da imagem. No Caso queremos colocar o código dentro da 
+    imagem (Estamos copiando tudo que está na pasta onde se encontra o dockerfile) e amos 
+    copiar para /var/www
+
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    COPY . /var/www
+
+4º Precisaremos baixar as dependencias para rodar nossa aplicação 
+
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    COPY . /var/www
+    RUN npm install
+
+5º Especificar o comando para iniciar a nossa aplicação. Também podemos passar o comando como se fosse 
+    em um array, por exemplo ["npm", "start"], ambos funcionam.
+
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    COPY . /var/www
+    RUN npm install
+    ENTRYPOINT npm start
+
+6º Especificar a porta que fica exposta
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    COPY . /var/www
+    RUN npm install
+    ENTRYPOINT ["npm", "start"]
+    EXPOSE 3000 
+
+7º Por fim, falta dizermos onde os comandos rodarão, pois eles devem ser executados dentro 
+da pasta /var/www
+    
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    COPY . /var/www
+    WORKDIR /var/www
+    RUN npm install
+    ENTRYPOINT npm start
+    EXPOSE 3000            
+
+8º Criando variáveis de ambiente (ENV)
+
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    ENV PORT=3000
+    COPY . /var/www
+    WORKDIR /var/www
+    RUN npm install
+    ENTRYPOINT npm start
+    EXPOSE 3000
+
+9º Utilizando a variável criada
+    
+    FROM node:latest
+    MAINTAINER Douglas Quintanilha
+    ENV PORT=3000
+    COPY . /var/www
+    WORKDIR /var/www
+    RUN npm install
+    ENTRYPOINT npm start
+    EXPOSE $PORT
 
