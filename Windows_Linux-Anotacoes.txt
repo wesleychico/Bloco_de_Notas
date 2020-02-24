@@ -3,6 +3,9 @@
     * Mover Arquivos 
         mv <arquivo> <diretorio>
 
+    * Remover um diretorio
+        rm -rf <nome do diretorio>
+
 ************* Comandos Windows **********************
     * Listar e Encerrar  Processos no Windows 
         link: https://receitasdecodigo.com.br/java/listar-e-matar-processo-pela-porta-em-uso-no-windows-pelo-cmd
