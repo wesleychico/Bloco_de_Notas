@@ -6,6 +6,9 @@
     * Remover um diretorio
         rm -rf <nome do diretorio>
 
+    * Acesso total a um diretorio e todos seus Arquivos
+       chmod 777 -R <nome do diretorio>
+
 ************* Comandos Windows **********************
     * Listar e Encerrar  Processos no Windows 
         link: https://receitasdecodigo.com.br/java/listar-e-matar-processo-pela-porta-em-uso-no-windows-pelo-cmd

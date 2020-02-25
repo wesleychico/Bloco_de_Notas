@@ -38,4 +38,24 @@
         * Consumir da primeira mensagem que foi armazenada no kafka
             bin/kafka-console-consumer.sh  --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO --from-beginning
 
+    * Alterando topicos para ter paralelização 
+        
+        bin/kafka-topics.sh --alter --zookeeper localhost:2181 --topic ECOMMERCE_NEW_ORDER --partitions 3
+
+        Obs: O número maximo de paralelização depende do numero de particoes
+        Para que novos topicos já sejam criados com o numero correto de particoes
+        precisa alterar o arquivo config/server.properties
+
+    * Verificando os consumer e seus grupos (Quantidade de mensagem que estão sendo consumidas)
+        bin/kafka-consumer-groups.sh --all-groups --bootstrap-server localhost:9092 --describe
+    
+****************   KAFKA_Curso - Conceito *******************************
+    
+    * A importância das chaves na paralelização de tarefas
+        Ela é peça fundamental para paralelizar o processamento de mensagens 
+        em um tópico dentro do mesmo consumer group.
+        A chave é usada para distribuir a mensagem entre as partições
+        existentes e consequentemente entre as instâncias de um serviço 
+        dentro de um consumer group.
+
     

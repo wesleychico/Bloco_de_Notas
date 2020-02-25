@@ -99,6 +99,21 @@
                   if(agencia < 1) {
                    throw new IllegalArgumentException("Agencia inválida");
                   }
+    
+    5. Java Parte 5: Pacotes e Java.lang
+
+      2. Todos os modificadores de acesso
+
+        Existem 4 níveis de visibilidade (de menor para maior):
+          I. private (visível apenas na classe)
+          
+          II. <<package private>> (visível na classe E em qualquer outro 
+          membro do mesmo pacote, podendo ser chamado de default)
+          
+          III. protected (visível na classe E em qualquer outro membro do 
+          mesmo pacote E para qualquer filho)
+
+          IV. public (visível em qualquer pacote)
 
             
 
