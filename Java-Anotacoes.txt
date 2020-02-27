@@ -115,7 +115,41 @@
 
           IV. public (visível em qualquer pacote)
 
-            
+    3. Distribuição do seu código
+    
+      3.1 Java Doc 
+
+        * Javadoc é uma documentação para desenvolvedores
+
+          Exemplo: 
+              /*
+               * javadoc aqui
+               */
+
+        * Rota no Eclipse: "Project -> Generate Javadoc".
+
+        * Apenas os membros "públicos" são contemplados no javadoc. Outros membros (não públicos) são considerados 
+          detalhes da implementação e não podemos ser utilizados por outras classes.
+
+        * Tag existentes no JavaDoc
+
+          @author (usado na classe ou interface)
+          @version (usado na classe ou interface)
+          @param (usado no método e construtor)
+          @return (usado apenas no método)
+          @exception ou @throws (no método ou construtor)
+          @see
+          @since
+          @serial
+          @deprecated
+
+      3.2 JAR
+        
+        * Através de jars podemos facilitar o compartilhamento do nosso código entre equipes.
+
+        * No exclise, cliente com botão esquerdo em cima do projeto, e selecione a opção EXPORT
+          Diversas opções de exportação serão exibidas, selecione aquela dentro do grupo java e 
+          dentro dele a opção JAR File clicando em "NEXT";
 
 
             
