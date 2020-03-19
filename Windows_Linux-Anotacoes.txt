@@ -9,6 +9,10 @@
     * Acesso total a um diretorio e todos seus Arquivos
        chmod 777 -R <nome do diretorio>
 
+    * Exibir todos os processo com um Pin (Filtro pela porta)
+        ps -ux | grep 2181
+
+
 ************* Comandos Windows **********************
     * Listar e Encerrar  Processos no Windows 
         link: https://receitasdecodigo.com.br/java/listar-e-matar-processo-pela-porta-em-uso-no-windows-pelo-cmd
