@@ -18,6 +18,9 @@
     
         Porta padrao do kafka - 9092
 
+    * Descrever as configuracoes dos topicos
+        bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe 
+
     * Criando um topica e conectando com o kafka
 
         bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic LOJA_NOVO_PEDIDO
@@ -38,13 +41,18 @@
         * Consumir da primeira mensagem que foi armazenada no kafka
             bin/kafka-console-consumer.sh  --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO --from-beginning
 
-    * Alterando topicos para ter paralelização 
-        
+    * Alterar o numero de particoes de um topic existente 
+
         bin/kafka-topics.sh --alter --zookeeper localhost:2181 --topic ECOMMERCE_NEW_ORDER --partitions 3
 
-        Obs: O número maximo de paralelização depende do numero de particoes
-        Para que novos topicos já sejam criados com o numero correto de particoes
-        precisa alterar o arquivo config/server.properties
+        Obs: O número maximo de paralelização depende do numero de particoes, para que os novos topicos 
+        já sejam criados com o numero correto de particoes precisa alterar o server.properties
+        
+        * Alterar arquivo de configura para criar os topics com o numero de particoes correta
+            gedit config/server.properties
+        
+            * Alterar o log basico para a quantidade de particoes que voce precisa
+                num.partitions=3
 
     * Verificando os consumer e seus grupos (Quantidade de mensagem que estão sendo consumidas)
         bin/kafka-consumer-groups.sh --all-groups --bootstrap-server localhost:9092 --describe
