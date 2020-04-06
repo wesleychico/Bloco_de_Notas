@@ -150,6 +150,32 @@
         * No exclise, cliente com botão esquerdo em cima do projeto, e selecione a opção EXPORT
           Diversas opções de exportação serão exibidas, selecione aquela dentro do grupo java e 
           dentro dele a opção JAR File clicando em "NEXT";
+    
+    5. Java Parte 5: Pacote e java.lang
+
+      1. Sobrescrita é relacionado com a herança que não é o caso nesse exemplo. 
+
+        Exemplo:
+            boolean existe1 = Banco.existeBanco("CAIXA");
+            boolean existe2 = Banco.existeBanco(394);
+            
+        Existem duas versões desse método que variam nos parâmetros, a primeira recebe uma String e a segunda recebe uma valor int.
+    
+    Java Parte 6: Conhecendo o java.util
+
+        Aula 2: Tipo de Referencias
+        
+        Aula 3: Equals e Mais Listas
+        
+          LinkedList é uma lista duplamente "linkada".
+            - Vantagem:Inserção e remoção performática em qualquer posição, também no início
+            - Desvantagem: Acesso mais demorado pelo índice, é preciso pesquisar os elementos
+          
+          ArrayList representa um array com redimensionamento dinâmico.
+            
+            - Vantagem: Acesso fácil e performático pelo índice
+            - Desvantagem: Elementos precisam ser copiados quando não há mais capacidade (Apos cria um novo array)
+
 
 
             
