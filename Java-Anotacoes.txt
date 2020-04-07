@@ -176,6 +176,16 @@
             - Vantagem: Acesso fácil e performático pelo índice
             - Desvantagem: Elementos precisam ser copiados quando não há mais capacidade (Apos cria um novo array)
 
+        Aula 5: Vector e a interface Collection
+
+          Vector: 
+            é threadsafe
+            também usa array
+            implementa a interface List
+
+          A interface java.util.Collection que é a interface de todas as coleções        
+
+
 
 
             
