@@ -185,6 +185,24 @@
 
           A interface java.util.Collection que é a interface de todas as coleções        
 
+        Aula 6: As classes Wrappers
+        
+          São classes que contém funcionalidades e encapsulam a variável de tipo primitivo!
+          Exemplo: java.lang.Integer
+
+          Parsing - é a conversão do String para um tipo específico
+          
+            * Integer.parseInt(diaComoTexto) - Devolve um primitivo
+          
+            * Integer.valueOf(diaComoTexto)  - Devolve uma referencia
+          
+
+          A criação do objeto Wrapper é chamada de autoboxing. 
+              
+          A retirada do valor primitivo do objeto Wrapper é chamada de unboxing
+            
+
+
 
 
 
