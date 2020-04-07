@@ -200,7 +200,16 @@
           A criação do objeto Wrapper é chamada de autoboxing. 
               
           A retirada do valor primitivo do objeto Wrapper é chamada de unboxing
-            
+        
+      Aula 7: Ordenacao de lista
+
+        java.util.Comparator: Parâmetro do método sort da lista e da classe Collections.
+
+        java.lang.Comparable: Usado para definir a ordem natural dos elementos!
+
+        Ordem Natural: É a ordem definida pelo próprio elemento da lista (Classe)
+        
+
 
 
 
