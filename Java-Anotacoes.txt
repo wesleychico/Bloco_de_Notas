@@ -187,32 +187,112 @@
 
         Aula 6: As classes Wrappers
         
-          São classes que contém funcionalidades e encapsulam a variável de tipo primitivo!
-          Exemplo: java.lang.Integer
+          - Wrappers: São classes que contém funcionalidades e encapsulam a variável de tipo primitivo!
+            Permitem que um array de referencia trabalhe com dados primitivos 
+            Para cada primitivo existe sua classe especifica. 
+            Exemplo: 
+              * int    (4 bytes) --> java.lang.Integer
+              * double (8 bytes) --> java.lang.Double
+              * float  (4 bytes) --> java.lang.Float
+              * long   (8 bytes) --> java.lang.Long
+              * short  (2 bytes) --> java.lang.Short
+              * byte   (1 bytes) --> java.lang.Byte
+              * char   (2 bytes) --> java.lang.Character
+              * boolean          --> java.lang.Boolean
 
-          Parsing - é a conversão do String para um tipo específico
-          
-            * Integer.parseInt(diaComoTexto) - Devolve um primitivo
-          
+          - Parsing - é a conversão do String para um tipo específico
+
+            * Integer.parseInt(diaComoTexto) - Devolve um primitivo          
             * Integer.valueOf(diaComoTexto)  - Devolve uma referencia
           
+                    
+          - O Boxing é a conversão de tipos primitivos em seu respectivo Wrapper correspondente.
+              Exemplo:
+                Boolean meuBoolean = true; 
+                //a conversão é feita de forma automática para o boolean
+                Integer meuInteger = 1203; 
+                Double meuDouble = 10.20;
 
-          A criação do objeto Wrapper é chamada de autoboxing. 
-              
-          A retirada do valor primitivo do objeto Wrapper é chamada de unboxing
+          - O Unboxing Conversion é quando você deseja fazer o inverso do boxing, ou seja, deseja converter um objeto para um tipo primitivo.
+              Exemplo:
+                boolean a = new Boolean(“True”);
+                char c = new Character(‘c’);
+                byte b = new Byte(“1”);
+                float f = new Float(1.0f);
+         
+        Aula 7: Ordenacao de lista
+
+          * java.util.Comparator: Parâmetro do método sort da lista e da classe Collections.
+          * java.lang.Comparable: Usado para definir a ordem natural dos elementos!
+          * Ordem Natural: É a ordem definida pelo próprio elemento da lista (Classe)
         
-      Aula 7: Ordenacao de lista
 
-        java.util.Comparator: Parâmetro do método sort da lista e da classe Collections.
+      Aula 8: Classes anônimas e lambdas
 
-        java.lang.Comparable: Usado para definir a ordem natural dos elementos!
+        -  Funcion Object: um objeto que criamos para encapsular uma função ou método. 
+           As classes anônimas facilitam um pouco a criação desses objetos. 
 
-        Ordem Natural: É a ordem definida pelo próprio elemento da lista (Classe)
-        
-
-
-
-
-
-
+        - Classe anônima e lambda: É menos custoso criar uma classe, a partir da interface, e já criar o objeto, de forma direta, em unidade.
+          Isso significa que, em vez de fazermos isso, que é um processo burocrático.
             
+            Exemplo - Classe anônima (Criou um objeto chamado Comparator):  
+              lista.sort( new Comparator<Conta>() {
+                  public int compare(Conta c1, Conta c2) {
+                    return Integer.compare(c1.getNumero(), c2.getNumero());
+                  }
+                });
+
+            É melhor escrevermos da seguinte forma (lambda):
+              lista.sort( (c1, c2) -> Integer.compare(c1.getNumero(), c2.getNumero()) );
+
+        - Exemplo de lambda em lacos (For):
+
+          * For Tradicional
+
+              List<String> nomes = new ArrayList<>();
+              nomes.add("Super Mario");
+              nomes.add("Yoshi"); 
+              nomes.add("Donkey Kong"); 
+
+              for(int i = 0; i < nomes.size(); i++) {
+                  System.out.println(nomes.get(i));
+              }
+          
+          * For - lambda (Uma simples chamada em um metodo)
+
+              List<String> nomes = new ArrayList<>();
+              nomes.add("Super Mario");
+              nomes.add("Yoshi"); 
+              nomes.add("Donkey Kong"); 
+
+              nomes.forEach((nome) -> System.out.println(nome));
+
+        - Como posso acessar (iterar) todas essas implementações de maneira uniforme sem saber os detalhes de cada implementação? A resposta está na "caixa de padrões de projeto" e se chama Iterator.
+          Uma Iterator é um objeto que possui no mínimo dois métodos: hasNext()e next(). Ou seja, você pode usá-lo para perguntar se existe um próximo elemento e pedir o próximo elemento. 
+
+          * Veja o código para usar o Iterator de uma lista:
+ 
+              List<String> nomes = new ArrayList<>();
+              nomes.add("Super Mario");
+              nomes.add("Yoshi"); 
+              nomes.add("Donkey Kong"); 
+
+              Iterator<String> it = nomes.iterator();
+
+              while(it.hasNext()) {
+                System.out.println(it.next());
+              }
+
+          * Se você entendeu esse código, você já aprendeu como iterar com filas, conjuntos ou mapas. 
+            Veja o uso do Iterator através de um conjunto:
+              
+              Set<String> nomes = new HashSet<>();
+              nomes.add("Super Mario");
+              nomes.add("Yoshi"); 
+              nomes.add("Donkey Kong"); 
+
+              Iterator<String> it = nomes.iterator();
+
+              while(it.hasNext()) {
+                System.out.println(it.next());
+              }
