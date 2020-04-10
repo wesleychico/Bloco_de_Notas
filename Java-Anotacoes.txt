@@ -303,7 +303,7 @@
 
       * Leitura do arquivo
           Exemplo:
-            FileInputStream fis = new FileInputStream("lorem.txt");
+            FileInputStream fis = new FileInputStream("lorem.txt"); //Entrada do arquivo
             InputStreamReader isr = new InputStreamReader(fis);  // Transformamos byte em caracteres
 
       * Leitura da Linha do arquivo
@@ -317,3 +317,23 @@
             Reader isr = new InputStreamReader(fis);  
             BufferedReader br = new BufferedReader(isr);
 
+    Aula 2: Escrita com Java.io
+
+      * Escrita do arquivo
+          Exemplo:
+            FileOutputStream fis = new FileOutputStream("lorem-saida"); //Conexao para o arquivo de saida
+            OutputStreamReader isr = new OutpitStreamReader(fis);  // Transformamos byte em caracteres
+
+      * Escrever linha no arquivo
+          Exemplo:
+            BufferedWriter  bw = new BufferedWriter(osw);;
+             bw.write("Teste escrita no arquivo de saida");
+             bw.newLine();
+             bw.close();
+
+      * Classes Abstratas e Concretas (Genericas)
+          FileInputStream é um OutputStream e o OutputStreamReader é um Writer. Podemos usar tipos genericos
+          Exemplo:
+            OutputStream fos = new FileOutputStream("Lorem-saida"); //Gerar Arquivo
+            Writer osw = new OutputStreamWriter(fos); // Transformar caracteres em byte
+            BufferedWriter  bw = new BufferedWriter(osw); //Gravar Linha
