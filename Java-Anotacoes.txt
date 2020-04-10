@@ -115,54 +115,54 @@
 
           IV. public (visível em qualquer pacote)
 
-    3. Distribuição do seu código
+      3. Distribuição do seu código
+      
+        3.1 Java Doc 
+
+          * Javadoc é uma documentação para desenvolvedores
+
+            Exemplo: 
+                /*
+                * javadoc aqui
+                */
+
+          * Rota no Eclipse: "Project -> Generate Javadoc".
+
+          * Apenas os membros "públicos" são contemplados no javadoc. Outros membros (não públicos) são considerados 
+            detalhes da implementação e não podemos ser utilizados por outras classes.
+
+          * Tag existentes no JavaDoc
+
+            @author (usado na classe ou interface)
+            @version (usado na classe ou interface)
+            @param (usado no método e construtor)
+            @return (usado apenas no método)
+            @exception ou @throws (no método ou construtor)
+            @see
+            @since
+            @serial
+            @deprecated
+
+        3.2 JAR
+          
+          * Através de jars podemos facilitar o compartilhamento do nosso código entre equipes.
+
+          * No exclise, cliente com botão esquerdo em cima do projeto, e selecione a opção EXPORT
+            Diversas opções de exportação serão exibidas, selecione aquela dentro do grupo java e 
+            dentro dele a opção JAR File clicando em "NEXT";
     
-      3.1 Java Doc 
+      5. Java Parte 5: Pacote e java.lang
 
-        * Javadoc é uma documentação para desenvolvedores
+        1. Sobrescrita é relacionado com a herança que não é o caso nesse exemplo. 
 
-          Exemplo: 
-              /*
-               * javadoc aqui
-               */
-
-        * Rota no Eclipse: "Project -> Generate Javadoc".
-
-        * Apenas os membros "públicos" são contemplados no javadoc. Outros membros (não públicos) são considerados 
-          detalhes da implementação e não podemos ser utilizados por outras classes.
-
-        * Tag existentes no JavaDoc
-
-          @author (usado na classe ou interface)
-          @version (usado na classe ou interface)
-          @param (usado no método e construtor)
-          @return (usado apenas no método)
-          @exception ou @throws (no método ou construtor)
-          @see
-          @since
-          @serial
-          @deprecated
-
-      3.2 JAR
-        
-        * Através de jars podemos facilitar o compartilhamento do nosso código entre equipes.
-
-        * No exclise, cliente com botão esquerdo em cima do projeto, e selecione a opção EXPORT
-          Diversas opções de exportação serão exibidas, selecione aquela dentro do grupo java e 
-          dentro dele a opção JAR File clicando em "NEXT";
-    
-    5. Java Parte 5: Pacote e java.lang
-
-      1. Sobrescrita é relacionado com a herança que não é o caso nesse exemplo. 
-
-        Exemplo:
-            boolean existe1 = Banco.existeBanco("CAIXA");
-            boolean existe2 = Banco.existeBanco(394);
-            
-        Existem duas versões desse método que variam nos parâmetros, a primeira recebe uma String e a segunda recebe uma valor int.
-    
+          Exemplo:
+              boolean existe1 = Banco.existeBanco("CAIXA");
+              boolean existe2 = Banco.existeBanco(394);
+              
+          Existem duas versões desse método que variam nos parâmetros, a primeira recebe uma String e a segunda recebe uma valor int.
+      
     Java Parte 6: Conhecendo o java.util
-
+  
         Aula 2: Tipo de Referencias
         
         Aula 3: Equals e Mais Listas
@@ -296,3 +296,24 @@
               while(it.hasNext()) {
                 System.out.println(it.next());
               }
+
+  Java parte 7: Trabalhando com java.io
+
+    Aula 1: Leitura com Java.io
+
+      * Leitura do arquivo
+          Exemplo:
+            FileInputStream fis = new FileInputStream("lorem.txt");
+            InputStreamReader isr = new InputStreamReader(fis);  // Transformamos byte em caracteres
+
+      * Leitura da Linha do arquivo
+          Exemplo:
+            BufferedReader br = new BufferedReader(isr);
+
+      * Classes Abstratas e Concretas (Genericas)
+          FileInputStream é um InputStream e o InputStreamReader é um Reader. Podemos usar tipos genericos
+          Exemplo:
+            InputStream fis = new FileInputStream("lorem.txt");
+            Reader isr = new InputStreamReader(fis);  
+            BufferedReader br = new BufferedReader(isr);
+
