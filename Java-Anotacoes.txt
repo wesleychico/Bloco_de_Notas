@@ -337,3 +337,47 @@
             OutputStream fos = new FileOutputStream("Lorem-saida"); //Gerar Arquivo
             Writer osw = new OutputStreamWriter(fos); // Transformar caracteres em byte
             BufferedWriter  bw = new BufferedWriter(osw); //Gravar Linha
+
+    Aula 3: FileWriter e PrintStream
+
+      * Java.io.FileWriter
+        - Pode ser combinado com outros Writers, como BufferedWriter
+        - E usado para escreveer caracteres
+        - E usado para estabelecer uma saida com um arquivo
+
+      * System.lineSeparator()
+        Gera uma nova linha no arquivo de texto baseado nos caracteres do sistema operacional.
+        
+      * Classes para estabelecer uma mesma saida
+        
+        * PrintWriter (possui varios metodos para imprimir qualquer tipo de dados)
+          Exemplo:
+            PrintWriter out = new PrintWriter("NomeDoArquivo");
+            out.println("Escreva o texto aqui");
+            out.close();
+        
+        * PrintStream (Versao 1.0 do Java)
+            Exemplo:
+              PrintStream out = new PrintStream("NomeDoArquivo");
+              out.println("Escreva o texto aqui");
+              out.close();
+
+    Aula 4: Usando java.util.scanner 
+
+      * Leitura de arquivos com Scanner  (Usa o File para abrir o arquivo)
+          
+          Scanner sc = new Scanner(new File("NomeDoArquivo.txt"));
+
+      * Uso de delimitador com Scanner (Metodo para separar o conteudo por um delimitador)
+          
+          scanner.useDelimiter(",");
+
+      * Formatação de texto e também de números
+        
+        Para formatar um double e definir 3 casas decimais, precisamos fazer como abaixo:
+          String.format("Formatando %06.3dbl", 45.3);
+      
+      * Definição de Localização para formatar o texto.
+          
+          Scanner linhaScanner = new Scanner(linha);
+          linha.useLocale(Locale.US);
