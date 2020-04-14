@@ -394,3 +394,21 @@
 
       * StandardCharsets do pacote java.io
 
+    Aula 6: Serialização de objetos
+
+      * Serialização
+        Transformação do objeto em um fluxo binário
+
+      * Desserialização
+        Transformação de um fluxo binário em um objeto
+
+      * SerialVersionUID
+        É boa prática colocar o atributo estático serialVersionUID na classe quando queremos serializar um objeto:
+
+          private static final long serialVersionUID = 1L;
+
+        O serialVersionUID define a versão atual da classe e esse valor fica gravado na representação binária do objeto. 
+        Cada vez que alteramos algo incompatível na classe, devemos alterar o seu valor. 
+
+      * NotSerializableException
+        Caso alguma das classes não implemente a interface Serializable, uma exceção do tipo NotSerializableException será lançada!   
