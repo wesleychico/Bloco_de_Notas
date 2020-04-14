@@ -381,3 +381,16 @@
           
           Scanner linhaScanner = new Scanner(linha);
           linha.useLocale(Locale.US);
+
+    Aula 5: Encoding e Charsets
+
+      Os encodings são tabelas que transformam cada codepoint em seu caractere específico, dependendo de determinada região.
+
+      * codePointAt()
+        Classe String para revelar o codepoint de determinado caractere a partir da posicao da string
+      
+      * getByte()
+        Metodo da classe string utilizado para transformar caractere em byte
+
+      * StandardCharsets do pacote java.io
+
