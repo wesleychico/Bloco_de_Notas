@@ -412,3 +412,6 @@
 
       * NotSerializableException
         Caso alguma das classes não implemente a interface Serializable, uma exceção do tipo NotSerializableException será lançada!   
+
+      * transient
+        Existe a palavra-chave transient para indicar que o atributo não deve ser serializado
