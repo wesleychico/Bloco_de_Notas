@@ -427,4 +427,29 @@
 
           * Método Sort
             Collections.sort(nomeDoCursor);
+
+    Aula 2: Listas de objetos
+
+      * Diferente de uma String ou de tipos primitivos mais simples, o Collections.sort não sabe ordenar uma lista de Aula (Classe).
+
+        1. Para comparar uma lsita de classe precisamos implementar a interface Comparable na classe
+          
+          Exemplo:
+            public class Aula implements Comparable<Aula>
+        
+        2. Declarar o método de comparacao
+          
+          Exemplo:     
+            @Override
+            public int compareTo(Aula outrAula) {
+                return this.titulo.compareTo(outrAula.getTitulo());
+            }
+
+      * Para evitar alteracoes no metodo de comparacao podemos utilizar o Comparator da seguinte forma:
+          
+          Exemplo:
+            aulas.sort(Comparator.comparing(Aula::getTempo));
+    
+
+
       
