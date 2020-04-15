@@ -304,7 +304,7 @@
       * Leitura do arquivo
           Exemplo:
             FileInputStream fis = new FileInputStream("lorem.txt"); //Entrada do arquivo
-            InputStreamReader isr = new InputStreamReader(fis);  // Transformamos byte em caracteres
+            InputJava: Dominando as CollectionsStreamReader isr = new InputStreamReader(fis);  // Transformamos byte em caracteres
 
       * Leitura da Linha do arquivo
           Exemplo:
@@ -415,3 +415,16 @@
 
       * transient
         Existe a palavra-chave transient para indicar que o atributo não deve ser serializado
+
+  Java parte 8: Dominando as Collections
+
+    Aula 1: Trabalhando com ArrayList
+
+      * java.util.Collections
+        Possui um conjunto de métodos estáticos auxiliares as coleções.
+
+        Exemplo:
+
+          * Método Sort
+            Collections.sort(nomeDoCursor);
+      
