@@ -450,6 +450,48 @@
           Exemplo:
             aulas.sort(Comparator.comparing(Aula::getTempo));
     
+    Aula 3: Relacionamentos com coleções
+
+      * Referencia ArrayList ou LinkedList
+        O ideal é deixarmos mais genérico, utilizando a interface List. 
+        Não temos motivo para ser super específico na instância que iremos usar. 
+        Se declararmos apenas como List, poderemos mudar de implementação, como para uma LinkedList, sem problema algum de compilação, por não termos nos comprometido com uma implementação em específico.
+        
+      * Collections.unmodifiableList
+        Quando incluimos no retorno de um metodo o Collection.unmodifiableList, deixamos a classe Imutavel
+
+        Exemplo:
+           public List<Aula> getAulas(){
+            return Collections.unmodifiableList(aulas);
+           }
+        
+        * ArrayList x LinkedList
+
+          1. ArrayList
+            Como diz o nome, internamente usa uma array para guardar os elementos
+
+            1.1 Vantagem
+              Ela consegue fazer umas operações de maneira muito eficiente, como invocar o método get(indice). 
+              Se você precisa pegar o décimo quinto elemento, ele te devolve isso bem rápido. 
+
+            1.2 Desvantagem
+               Quando você for, por exemplo, inserir um novo elemento na primeira posição, a implementação vai precisar mover todos os elementos que estão no começo da lista para a próxima posição. 
+               Se há muitos elementos, isso vai demorar... 
+               Chamamos isso em computação de consumo de tempo linear.  
+
+          2.  LinkedList 
+            Ela utiliza a estrutura de dados chamada lista ligada.
+            
+            2.1 Vantagem
+              Ela é muito rápida para adicionar e remover elementos na cabeça da lista, isso é, na primeira posição. 
+            
+            2.2 Desvantagem
+
+              Ela é lenta se você precisar acessar um determinado elemento, pois a implementação precisará percorrer todos os elementos até chegar ao décimo quinto, por exemplo.
+
+
+
+
 
 
       
