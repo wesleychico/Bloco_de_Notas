@@ -421,8 +421,9 @@
     Aula 1: Trabalhando com ArrayList
 
       * java.util.Collections
+       
+        A estrutura de coleções Java é um conjunto de classes e interfaces que implementam estruturas de dados de coleção comumente reutilizáveis. 
         Possui um conjunto de métodos estáticos auxiliares as coleções.
-
         Exemplo:
 
           * Método Sort
