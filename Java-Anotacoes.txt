@@ -535,5 +535,28 @@
 
           Diferentemente de uma lista, um conjunto não define uma ordem. 
           Isso significa que não recebemos os elementos na mesma ordem da inserção.
+  
+    Aula 6: Aplicando o Set no modelo
 
-      
+      * Collections.emptySet()
+
+        - Criando um conjunto vazio
+            Exemplo:
+              Set<String> nomes = Collections.emptySet();
+
+        - Nao permite addicionar informacoes
+
+        - E util quando precisamos representar um curso que foi cancelado pois não teve matriculas, por exemplo. 
+
+      * Threads 
+        
+        Uma das características mais interessantes de JVM é que ela sabe trabalhar em paralelo. 
+        Internamente isso é feito por meio de Threads que funcionam como pequenos processos dentro da JVM.
+
+      * Collections.synchronizedSet(alunos); 
+        
+        Transforma uma coleção comum em uma coleção para threads. 
+        É justamente isso que o método faz, retorna um nova coleção que pode ser compartilhada entre threads sem perigos.
+
+          Exemplo:
+            Set<Aluno> alunosSincronizados = Collections.synchronizedSet(alunos);
