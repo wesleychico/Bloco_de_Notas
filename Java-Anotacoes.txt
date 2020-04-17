@@ -515,4 +515,25 @@
         
           List<Type> list = new ArrayList<Type>(Collections.nCopies(1000, (Type)null));
 
+    Aula 5: O poder dos sets
+
+      * java.util.Set
+        
+        Um conjunto de elementos é apresentado através da interface java.util.Set.
+
+        1.1 Um conjunto não aceita elementos repetidos
+
+          Um Set garante que nenhum elemento se repete. 
+          Por isso o método add(..) devolve um booleano que indica o sucesso da inserção.
+
+        1.2 Há métodos que fazem busca por um objeto, como contains(..) ou remove(..), que são muito mais rápidos se comparado com uma lista
+
+          Isso é uma grande vantagem. 
+          Devido a implementação do Set (aquela tabela de espalhamento), o acesso aos elementos é muito rápido.
+
+        1.3 Um conjunto não garante a ordem de inserção
+
+          Diferentemente de uma lista, um conjunto não define uma ordem. 
+          Isso significa que não recebemos os elementos na mesma ordem da inserção.
+
       
