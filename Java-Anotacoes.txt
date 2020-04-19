@@ -575,25 +575,91 @@
         1. Uma performace similar a do HashSet
         2. Possui acesso previsível
 
-  Aula 9: Qual Collection usar
+    Aula 9: Qual Collection usar
 
-  * Provavelmente, caso a modelagem do sistema ainda não esteja bem definida, o desenvolvedor irá utilizar a interface Collection<E>. 
-    Dessa maneira, terá acesso aos métodos básicos de todas as implementações, como size(), add(), remove() e contains(). 
-    Conforme for sentindo necessidade em algo específico, o desenvolvedor fará poucas mudanças em seu código.
-    Caso sinta necessidade de fazer uma requisição a um elemento específico através da sua posição, trocará de Collection<E> para List<E>. 
-    Caso perceba que ordem não importa, porém é necessária uma busca bem rápida (e sem repetições), um Set<E> é mais apropriado.
-    Enquanto não sentir essa necessidade, provavelmente a Collection<E> será a melhor escolha.
+      * Provavelmente, caso a modelagem do sistema ainda não esteja bem definida, o desenvolvedor irá utilizar a interface Collection<E>. 
+        Dessa maneira, terá acesso aos métodos básicos de todas as implementações, como size(), add(), remove() e contains(). 
+        Conforme for sentindo necessidade em algo específico, o desenvolvedor fará poucas mudanças em seu código.
+        Caso sinta necessidade de fazer uma requisição a um elemento específico através da sua posição, trocará de Collection<E> para List<E>. 
+        Caso perceba que ordem não importa, porém é necessária uma busca bem rápida (e sem repetições), um Set<E> é mais apropriado.
+        Enquanto não sentir essa necessidade, provavelmente a Collection<E> será a melhor escolha.
 
-  * List vs Set
+      * List vs Set
+      
+        1. List é uma sequência e aceita elementos duplicados. 
+        2. Set não aceita duplicados e não define ordem.
+
+      * TreeSet
+
+        * Aceita elementos ordenados
+        * E não aceita duplicado
+        
+        * A implementação TreeSet já ordena os seus elementos na hora da inserção. 
+          Qual é o critério da ordenação depende e pode ser definido através de um Comparator.
+
+    Aula 10: Mapas
+
+      1. A interface Map não implementa a interface Collection, apesar de fazer parte da API de Collections.
+
+      2. Não podemos repetir um valor em um Map
+      
+      3. Se repetimos uma chave, a chave repetida é sobrescrita pela nova
+        
+        Se uma chave for repetida, a antiga permanece, porém, o valor é sobrescrito pelo novo valor contido na chave passada, sendo o antigo valor "esquecido" pelo Map.
+
+      4. A interface Map mapeia valores para chaves, ou seja, através da chave conseguimos acessar o valor
+        
+        Ela funciona da seguinte maneira, mapeia valores para chaves, e através da chave conseguimos acessar o valor correspondente. 
+        Por isso ela não pode ser repetida, ao contrário do valor, que podem existir iguais.
+
+      * Metodo PUT
+        
+        O método utilizado para adicionar um elemento em um Map é o método put. 
+       
+        Ele recebe dois parâmetros, a chave e o valor. 
+       
+        Os tipos desses parâmetros dependem do que definimos na hora da instância do objeto. 
+        
+        Exemplo - recebe como chave a matrícula do aluno e como valor o seu nome :
+
+          Map<Integer, String> matriculaParaAluno = new HashMap<>();
+          matriculaParaAluno.put(123456, "Leonardo Cordeiro");
+
+      * HashMap
+
+        Não mantém a ordem de inserção dos seus elementos. 
+      
+      * LinkedHashMap
+
+        O LinkedHashMap continua nos dando a performance de um HashMap, mas com acesso previsível e ordenado, seguindo a inserção dos seus elementos.
+
+    * Segundo o JavaDoc, um Map também pode ser visto como se fossem de 3 coleções:
+
+      1. Coleção de chaves
+        
+        Exemplo de como acessa-los:
   
-    1. List é uma sequência e aceita elementos duplicados. 
-    2. Set não aceita duplicados e não define ordem.
+          Set<String> chaves = nomesParaIdade.keySet();    
+          for (String nome : chaves) {
+              System.out.println(nome);
+          }
 
-  * TreeSet
+      2. Coleção de valores
+  
+        Exemplo de como acessa-los:
+  
+          Collection<Integer> valores = nomesParaIdade.values();
+          for (Integer idade : valores) {
+              System.out.println(idade);
+          }
 
-    * Aceita elementos ordenados
-    * E não aceita duplicado
-    
-    * A implementação TreeSet já ordena os seus elementos na hora da inserção. 
-      Qual é o critério da ordenação depende e pode ser definido através de um Comparator.
+      3. Coleção das associações
+
+          Exemplo de como acessa-los:
+
+          Set<Entry<String, Integer>> associacoes = nomesParaIdade.entrySet();
+          for (Entry<String, Integer> associacao : associacoes) {
+          System.out.println(associacao.getKey() + " - " + associacao.getValue());
+          }
+
 
