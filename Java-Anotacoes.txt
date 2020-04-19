@@ -427,7 +427,7 @@
         Exemplo:
 
           * Método Sort
-            Collections.sort(nomeDoCursor);
+            Collections.sort(nomeDoCursor);conjuntoconjunto
 
     Aula 2: Listas de objetos
 
@@ -560,3 +560,17 @@
 
           Exemplo:
             Set<Aluno> alunosSincronizados = Collections.synchronizedSet(alunos);
+
+    Aula 8: Outros sets e iterators
+
+      * HashSet
+        
+        1. É um conjunto
+        2. Não aceitar elementos duplicados;
+        3. Podemos realizar buscas extremamente rápidas;
+        4. Não possui uma ordem previsível.
+
+      * LinkedHashSet
+
+        1. Uma performace similar a do HashSet
+        2. Possui acesso previsível
