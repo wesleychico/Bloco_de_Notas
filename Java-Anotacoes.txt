@@ -574,3 +574,26 @@
 
         1. Uma performace similar a do HashSet
         2. Possui acesso previsível
+
+  Aula 9: Qual Collection usar
+
+  * Provavelmente, caso a modelagem do sistema ainda não esteja bem definida, o desenvolvedor irá utilizar a interface Collection<E>. 
+    Dessa maneira, terá acesso aos métodos básicos de todas as implementações, como size(), add(), remove() e contains(). 
+    Conforme for sentindo necessidade em algo específico, o desenvolvedor fará poucas mudanças em seu código.
+    Caso sinta necessidade de fazer uma requisição a um elemento específico através da sua posição, trocará de Collection<E> para List<E>. 
+    Caso perceba que ordem não importa, porém é necessária uma busca bem rápida (e sem repetições), um Set<E> é mais apropriado.
+    Enquanto não sentir essa necessidade, provavelmente a Collection<E> será a melhor escolha.
+
+  * List vs Set
+  
+    1. List é uma sequência e aceita elementos duplicados. 
+    2. Set não aceita duplicados e não define ordem.
+
+  * TreeSet
+
+    * Aceita elementos ordenados
+    * E não aceita duplicado
+    
+    * A implementação TreeSet já ordena os seus elementos na hora da inserção. 
+      Qual é o critério da ordenação depende e pode ser definido através de um Comparator.
+
