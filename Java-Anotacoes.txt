@@ -663,3 +663,19 @@
           }
 
 
+  Java Servelts Fundamentos da programacao web java
+
+    Aula 1: Fundamentos da Web e a API de Servlets
+
+      * Apache TomCat
+
+        1. Sabe gerar o HTML
+        2. Entende o protocolo http
+        3. E um servidor Web
+
+      * Servlets
+        
+        1. É mapeado para uma URL.
+        2. É um objeto!
+        3. Pode ser chamado através do protocolo HTTP.
+        
