@@ -678,4 +678,26 @@
         1. É mapeado para uma URL.
         2. É um objeto!
         3. Pode ser chamado através do protocolo HTTP.
+
+    Aula 8: Deploy da aplicação
+      
+      * Deploy
+
+        1) Gerar um arquivo WAR - Web ARchive 
+        2) Export o projeto: WAR File
+        3) Disponibilize o arquivo dentro da pasta do TomCat (webapps), normalmente chama Deploy
+        4) Para subir no tom cat de produto
+        5) No terminal acesse o a pasta do tom  cat para subir aplicacao
+        6) Execute o comando: bin/startup.bat
+
+
+      * TomCat rodando com a versao do java especifica
+
+          1) Variaves de hambiente (Java_Home)
+          2) Aponta para a pasta correta: java/JRE-10.0.2
+          3) Alterar o path tambem, selecionando a pasta bin do java-JRE
+
+      * Alterando a porta padrao no TomCat
+
+          1) Alterar o arquivo server.xml que fica na pasta config (TomCa  
         
