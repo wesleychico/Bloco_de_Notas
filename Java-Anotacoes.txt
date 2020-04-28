@@ -700,4 +700,13 @@
       * Alterando a porta padrao no TomCat
 
           1) Alterar o arquivo server.xml que fica na pasta config (TomCa  
+
+      * War vs Jar 
+
+        WAR:  é o ZIP de projetos Java Web, que você roda de dentro de um servidor como o Tomcat.
+              Possui os arquivos do mundo WEB como imagens, CSS, JS, JSP e HTML.
+        
+        JAR: é o ZIP para projetos comuns, que não são Web.
+        
+
         
