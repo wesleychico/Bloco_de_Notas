@@ -708,5 +708,14 @@
         
         JAR: é o ZIP para projetos comuns, que não são Web.
         
+  Java Servlet parte 2: Autenticação, autorização e o padrão MVC
+
+    Aula 1: Criando o controlador
+
+      * Controlador
+
+        A função do controlador é receber as requisições e delegar as chamadas para as ações correspondentes.
+        
+
 
         
