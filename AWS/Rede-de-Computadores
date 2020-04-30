@@ -1,0 +1,24 @@
+* Pre-Requisitos
+
+    Curso de Redes
+
+    * Redes parte 1: introducao, conceito e praticas
+
+       * ICMP    
+        Responsável por mandar uma requisição (Echo Request) para máquina remota e esperar um retorno dessa máquina remota (Echo Reply).
+
+        * Traceroute
+          A principal funcionalidade do traceroute é verificar a rota que a minha informação levou para chegar até a máquina de destino. 
+            
+          Para utilizar a ferramenta:    
+            - Caso seja Windows: 
+              tracert www.google.com
+
+            - Caso seja Ubuntu:                     
+                sudo apt-get install traceroute (caso não tenha instalado) 
+                traceroute www.google.com
+
+            - Caso seja Mac: 
+                traceroute www.google.com     
+                 
+

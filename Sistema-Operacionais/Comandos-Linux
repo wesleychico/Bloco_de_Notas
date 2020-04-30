@@ -1,0 +1,15 @@
+***********************************************************************************
+                        *** Comandos Linux ****
+***********************************************************************************
+
+    * Mover Arquivos 
+        mv <arquivo> <diretorio>
+
+    * Remover um diretorio
+        rm -rf <nome do diretorio>
+
+    * Acesso total a um diretorio e todos seus Arquivos
+       chmod 777 -R <nome do diretorio>
+
+    * Exibir todos os processo com um Pin (Filtro pela porta)
+        ps -ux | grep 2181

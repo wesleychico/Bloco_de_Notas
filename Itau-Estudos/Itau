@@ -1,0 +1,33 @@
+
+Infraestrutura 
+    
+    * IASS
+        Entendemos o produto da Cloud Interna Itaú onde se oferecerem máquinas virtuais criadas a partir de um software virtualizador chamado OpenStack
+        
+        * OpenStack
+            Software virtualizador que permite a criacao de máquinas virtuais
+
+        * Pipepper
+            Ferramenta da Cloud Itaú para gerir esteiras de build e deploy.
+
+        * Certificados SSL
+         Ao usar IaaS, a própria Cloud Itaú entrega o certificado correto da aplicação na máquina, cabendo ao desenvolvedor ‘linká-lo’ nas receitas e softwares que usa (Apache, Nginx, etc. )     
+
+        
+    * Pass        
+        Entendemos a virtualização e orquestração de Containers Docker gerida pela ferramenta OpenShift.
+
+        * OpenShift
+            Responsavel pela virtualização e orquestração de Containers Docker.
+            Os pacotes sao geridos pelo Pipepper
+
+        * Certificados SSL 
+            Quando se usa PaaS, o certificado já está instalado no Kubernetes.
+
+    * Monitoramento
+        * AppDynamics                 
+            é um APM, isto é, uma ferramente que se ‘pluga’ a sua aplicação e extrai dela muitas métricas e dados, levando ao servidor central, que por sua vez exibirá informações detalhadas do que ocorre internamente a esta. Classes com gargalos, alto consumo de memória, pedaços de códigos ineficiente – tudo isso aparecerá no AppDynamics.
+         
+        * Splunk
+           é uma ferramenta que coleta logs, os indexa e guarda em um servidor central. O desenvolvedor pode então logar nesse servidor central e fazer pesquisas sobre o que está sendo logado, encontrar padrõe e defeitos. 
+           Pode também deixar suas pesquisar salvas e configuradas para geração de alertas, que ajudará a saber que algo precisa de atenção.
