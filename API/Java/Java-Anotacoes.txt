@@ -707,4 +707,30 @@ Java Servlet parte 2: Autenticação, autorização e o padrão MVC
     * Para definir a ordem de execução, devemos mapear os filtros no web.xml
     * Um filtro recebe como parâmetro, do método doFilter, um ServletRequest e um ServletResponse
     * Ambos, ServletRequest e ServletResponse, são interfaces mais genéricas do que HttpServletRequeest e HttpServletResponse
-    * Para chamar o próximo filtro na cadeia, usamos o objeto FilterChain        
+    * Para chamar o próximo filtro na cadeia, usamos o objeto FilterChain   
+
+  Aula 6: Introdução ao Web     
+    1) Um web service usa HTML, JSON ou XML como retorno
+    
+    2) Um web service oferece alguma funcionalidade para seu cliente
+    
+    3) Um web service é útil quando precisa oferecer uma funcionalidade para cliente diferentes
+    
+    4) Para o web service não importa se o cliente foi escrito em Java, C# ou outra linguagem, pois usamos um protocolo e formatos independentes da plataforma
+    
+    5) Para gerar um JSON no código Java utilizamos a biblioteca GSON
+       
+      * Gson - Utilizada para retornarmos um JSON para o cliente.
+
+    6) Para gerar um XML no código Java utilizamos a biblioteca XStream
+      
+      * XStream - Utilizada para retornarmos um XML para o cliente.
+
+    7) Para criar um cliente HTTP a partir do código Java, usando a biblioteca Apache HttpClient
+    
+      * HttpClient - Utilizada para simular uma requisição no sistema
+
+    * API (Application Programming Interface)
+      API define a interface das funcionalidades que o serviço oferece
+
+
