@@ -733,4 +733,25 @@ Java Servlet parte 2: Autenticação, autorização e o padrão MVC
     * API (Application Programming Interface)
       API define a interface das funcionalidades que o serviço oferece
 
+  Aula 7: Deploy no Jetty
+
+    Procedimento para Deploy: 
+      1) Botao direito no projeto que deseja exporta 
+      2) Export --> War.file 
+      3) Incluir o arquivo gerado na dentro da pasta do servidor
+        Jetty -->  webapps
+      4) Iniciar o servidor pelo terminar como o comando:
+        java -jar start.jar
+      5) Testar a aplicacao
+
+    * Servlet Container (Servlet engine) VS Application Servers      
+      Os Application Servers, além de mapear requisições, são muito mais robustos e oferecem um número maior de recursos, diferentemente dos Servlet Containers, que apenas mapeiam as requisições do cliente.
+
+    * Servlet Container     
+      O papel do Servlet Container é implementar as interfaces que fazem parte da especificação de uma Servlet e ele também mapeia as requisições!
+
+
+
+
+
 
