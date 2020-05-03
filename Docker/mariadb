@@ -1,0 +1,28 @@
+mariadb
+
+    Rodar Conteiner do mariadb
+    docker run --name mariadb-7702 -p 7702:3306 -v /home/chico/Documentos/Projetos/Docker/mariadb-7702/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=9i5fyn8s -d mariadb
+
+    Executando imagem
+
+        docker exec -it <id_imagem> bash
+
+
+    Conectar no maria db
+         mysql -u root -p -h localhost
+
+    Exibir data bases 
+        show databases;
+
+    Acessar data base
+        use <nome_dataBase>;
+
+    Exibir tabelas
+        show tables;
+
+    Verificar colunas
+        desc <nome_tabela>
+
+
+
+

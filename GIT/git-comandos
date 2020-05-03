@@ -1,0 +1,30 @@
+***********************************************************************************
+                        *** Comandos GIT ****
+***********************************************************************************
+
+    * Visualizar a sua origem remota
+        git remote -v 
+
+    * Deletando um servidor remoto 
+        git remote remove origin
+
+    * Adicionando um servidor remote existente
+        git remote add origin <nome_servidor>
+    
+    * Adicionando o uma chave publica no git para nao ficar pedindo senha
+
+        1) Vá para "Git Bash", assim como o cmd. Clique com o botão direito e "Executar como administrador".
+        2) Tipo ssh-keygen
+        3) Pressione Enter.
+        4) Ele solicitará que você salve a chave no diretório específico.
+        5) Pressione Enter. Ele solicitará que você digite a senha ou digite sem senha.
+        6) A chave pública será criada para o diretório específico.
+        7) Agora vá para o diretório e abra a .sshpasta.
+        8) Você verá um arquivo id_rsa.pub. Abra-o no bloco de notas. Copie todo o texto dele.
+        9) Vá para https://gitlab.com/profile/keys .
+        10) Cole aqui no campo de texto "chave".
+        11) Agora clique no "Título" abaixo. Ele será preenchido automaticamente.
+        12) Depois clique em "Adicionar chave".
+        
+
+    
